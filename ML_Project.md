@@ -3,11 +3,8 @@ Predicting Credit Card Approvals
 Chelsea Linares
 2023-04-17
 
-- [Introduction](#introduction)
-  - [Inspiration and Motive](#inspiration-and-motive)
-  - [Project Outline](#project-outline)
-  - [Loading Packages and Uploading Data
-    Set](#loading-packages-and-uploading-data-set)
+- [Loading Packages and Uploading Data
+  Set](#loading-packages-and-uploading-data-set)
 - [Tidying Our Data](#tidying-our-data)
   - [Describing the Predictors](#describing-the-predictors)
 - [Visual EDA](#visual-eda)
@@ -30,65 +27,8 @@ Chelsea Linares
 - [Model Results](#model-results)
   - [Training Our Models](#training-our-models)
   - [Testing our Models](#testing-our-models)
-- [Conclusion](#conclusion)
 
 <img src="https://apply.wellsfargo.com/assets/images/photography/product/credit-cards/WF_ActiveCash_Collateral_Front_190px_RGB_021122_lowres.png" style="display: block; margin: auto;" />
-
-## Introduction
-
-My project is meant to predict whether someone will be approved for a
-credit card or not. To do this, I will use multiple classification
-machine learning models and compare results to determine the most
-accurate. My data comes from kaggle, where it states the original data
-was obtained from a UCI confidential source. We don’t know much about
-the original source just that its license under Creative Commons
-Attribution 4.0 International and that it has been cited in several
-different papers. I have provided a link down below from where I found
-it on kaggle.
-
-Link:
-<https://www.kaggle.com/datasets/samuelcortinhas/credit-card-approval-clean-data?resource=download>
-
-### Inspiration and Motive
-
-Financial literacy and financial freedom have always been a big interest
-of mine especially since it’s something most Americans lack. The
-consumerism mindset keeps us in the loop of constant need for the latest
-gadgets and devices. This is incredibly harmful towards establishing
-stable finances, and when credit cards come into play, it can either
-improve your life or completely sink it. It all depends on your basic
-principles.
-
-Credit cards are a controversial subject, as many who hold them aren’t
-good at managing them and thus, will believe they only lead to debt.
-This idea is far from the truth as they can acquire cash back on
-purchases, if used correctly. Plus, they can provide a good credit
-score, which can open many doors such as purchasing a home and obtaining
-lower APRs.
-
-At first, opening a credit card or at least attempting to open one will
-bring your credit score down. Since banks need a formal credit report,
-that automatically lowers it. This explains the necessity of researching
-the credit card and feeling confident about being approved. That made me
-realize that even though banks do not disclose the effect each variable
-has into their decision, we can determine that data ourselves, and
-ultimately create a good learning machine that can highly predict
-whether someone will be approved or not.
-
-### Project Outline
-
-To build our classification binary model, we will first clean our data
-by removing any variables with large amounts of missing data. With our
-remaining variables, we will visualize the parts of our data that we
-find interesting. This will give us a better understanding of how the
-predictors work and how they affect the outcome. Later, we will split
-our data into a training and testing set, create a recipe, and fold our
-training set to a 10-fold cross validation. These will then be used for
-our 6 models: Logistic Regression, Linear Discriminant, KNN, Decision
-Tree, Gradient-Boosted Tree, and Random Forest. The models have been
-fitted against our cross validation, and the top 2 best performing will
-be fitted against our training data and then tested against our testing
-set. The best performing after our testing will be declared the winner!
 
 ### Loading Packages and Uploading Data Set
 
@@ -116,7 +56,7 @@ library(yardstick)
 library(xgboost)
 library(vip)
 options(digits = 5)
-credit_card<-read.csv('unprocessed/raw_data.csv')
+credit_card<-read.csv('raw_data.csv')
 ```
 
 ## Tidying Our Data
@@ -962,33 +902,3 @@ correctly determined rate in contrast to the unapproved who were only
 predicted 87.0% of the time. This strikes me as odd since the model had
 more unapproved to train on but maybe since there’s less approved on the
 testing set, it’s easier to get a higher rate.
-
-## Conclusion
-
-This project has been incredible to work on, we researched, explored,
-analyzed, and interpreted our data, which is something that I will
-always treasure. After cleaning our data and determining which
-predictors we should keep, we created 6 different models to establish
-without a doubt the most efficient model at predicting whether client
-would be `Approved` or not for a credit card. We found it was Random
-Forest, which I was extremely proud of given the final roc_auc was very
-close to perfectly predicting all outcomes.
-
-What did shock me and I think I will always keep this in the back of my
-mind is that banks prefer to give customers with a prior default credit
-cards rather than people without. Banks are a privately own institution
-design to accumulate wealth to their stockholders and in order to do
-that common people might be at a disadvantage. Though it is not a banks
-responsibility to explain their tactics. People as a collective need to
-start educating others on managing their own finances.Though in the USA,
-where the consumer mindset is heavily ingrained in us, it’s easy to
-deter yourself from that, me included. So to promote better overall
-finances, we should hold each other accountable.
-
-So I guess my biggest takeaway with this project is that we need to
-educate future generations about finances and making smart decisions.
-Not just credit cards but 401K, Roth IRA, and investments, we have to
-figure out ways to finesse the system, not let the system finesse us!
-Because banks are a big virtue if we know how to use them correctly.
-Credit cards can generate cash bank and increase credit score, it’s just
-a matter of using them responsibly.
