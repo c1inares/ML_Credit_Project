@@ -1,7 +1,6 @@
 Conclusion
 ================
-Chelsea Linares
-2024-04-12
+
 
 This project has been incredible to work on, we researched, explored,
 analyzed, and interpreted our data, which is something that I will
